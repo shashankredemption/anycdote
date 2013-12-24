@@ -1,0 +1,21 @@
+<div class="row top-buffer">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @anycdote.title %>
+</p>
+
+<p>
+  <strong>Story:</strong>
+  <%= @anycdote.story %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @anycdote.location %>
+</p>
+
+<%= link_to 'Edit', edit_anycdote_path(@anycdote) %> |
+<%= link_to 'Back', anycdotes_path %>
+</div>

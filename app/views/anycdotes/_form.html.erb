@@ -1,0 +1,31 @@
+
+<%= form_for(@anycdote) do |f| %>
+  <% if @anycdote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@anycdote.errors.count, "error") %> prohibited this anycdote from being saved:</h2>
+
+      <ul>
+      <% @anycdote.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :story %><br>
+    <%= f.text_field :story %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

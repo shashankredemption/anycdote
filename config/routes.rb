@@ -1,4 +1,6 @@
 Pinteresting::Application.routes.draw do
+  resources :anycdotes
+
   devise_for :users
   root "pages#login"
   get "home" => "pages#home"
