@@ -11,15 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224053325) do
+ActiveRecord::Schema.define(version: 20131224080308) do
 
   create_table "anycdotes", force: true do |t|
     t.string   "title"
+    t.string   "string"
     t.string   "story"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_id"
+    t.string   "integer"
   end
+
+  add_index "anycdotes", ["integer"], name: "index_anycdotes_on_integer"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
