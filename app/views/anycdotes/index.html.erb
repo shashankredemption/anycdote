@@ -3,6 +3,7 @@
   <% @anycdotes.each do |anycdote| %>
     <div class="box panel panel-default">
       <%= anycdote.user.email %>
+    <div class="panel-body">
       <%= anycdote.title %>
       <%= anycdote.story %>
       <%= anycdote.location %>
@@ -12,10 +13,7 @@
         <%= link_to 'Destroy', anycdote, method: :delete, data: { confirm: 'Are you sure?' } %>
       <%end %>
     </div>
+  </div>
   <% end %>
-  <br>
-  <% if user_signed_in? %>
-    <%= link_to 'New Anycdote', new_anycdote_path %>
-    <% end %>
 </div>
 </div>
