@@ -4,6 +4,7 @@
 <table>
   <thead>
     <tr>
+      <th>User</th>
       <th>Title</th>
       <th>Story</th>
       <th>Location</th>
@@ -16,18 +17,22 @@
   <tbody>
     <% @anycdotes.each do |anycdote| %>
       <tr>
+        <td><%= anycdote.user.email %></td>
         <td><%= anycdote.title %></td>
         <td><%= anycdote.story %></td>
         <td><%= anycdote.location %></td>
         <td><%= link_to 'Show', anycdote %></td>
+        <% if anycdote.user == current_user %>
         <td><%= link_to 'Edit', edit_anycdote_path(anycdote) %></td>
         <td><%= link_to 'Destroy', anycdote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Anycdote', new_anycdote_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Anycdote', new_anycdote_path %>
+  <% end %>
 </div>

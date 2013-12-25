@@ -16,6 +16,8 @@
   <%= @anycdote.location %>
 </p>
 
+<% if @anycdote.user == current_user %>
 <%= link_to 'Edit', edit_anycdote_path(@anycdote) %> |
+<% end %>
 <%= link_to 'Back', anycdotes_path %>
 </div>
