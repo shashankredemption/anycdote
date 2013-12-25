@@ -6,3 +6,7 @@ $brand-primary: #bdc3c7;
 @import 'bootstrap';
 
 .top-buffer { margin-top:100px; }
+
+.navbar .nav.pull-right {
+     float: right; 
+  }
