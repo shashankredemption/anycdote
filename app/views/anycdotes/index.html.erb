@@ -1,18 +1,24 @@
 <div class="row top-buffer">
-<div id="anycdotes" class="transitions-enabled">
+<div id="anycdotes" class="transitions-enabled" class="row top-buffer">
   <% @anycdotes.each do |anycdote| %>
-    <div class="box panel panel-default">
-      <%= anycdote.user.email %>
+  <div class="box panel panel-default">
+<!--      <%= anycdote.user.email %> -->
     <div class="panel-body">
       <%= anycdote.title %>
+    </div>
+    <div class="panel-body">
       <%= anycdote.story %>
-      <%= anycdote.location %>
+    </div>  
+    <div class="panel-body">
+      <%= anycdote.location %>  
+    </div>
+<!--    <div class="panel-body"> 
       <%= link_to 'Show', anycdote %>
       <% if anycdote.user == current_user %>
         <%= link_to 'Edit', edit_anycdote_path(anycdote) %>
         <%= link_to 'Destroy', anycdote, method: :delete, data: { confirm: 'Are you sure?' } %>
       <%end %>
-    </div>
+    </div> -->
   </div>
   <% end %>
 </div>
