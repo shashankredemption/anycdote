@@ -2,8 +2,3 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-	$('#anycdotes').anycdotesloaded ->
-		$('#anycdotes').masonry
-			itemSelector: ".box"
-			isFitWidth: true
