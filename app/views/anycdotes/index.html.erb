@@ -2,16 +2,12 @@
 <div id="anycdotes" class="transitions-enabled" class="row top-buffer">
   <% @anycdotes.each do |anycdote| %>
   <div class="box panel panel-default">
-<!--      <%= anycdote.user.email %> -->
-    <div class="panel-body">
-      <%= anycdote.title %>
-    </div>
     <div class="panel-body">
       <%= anycdote.story %>
     </div>  
-    <div class="panel-body">
+<!--    <div class="panel-body">
       <%= anycdote.location %>  
-    </div>
+    </div> -->
 <!--    <div class="panel-body"> 
       <%= link_to 'Show', anycdote %>
       <% if anycdote.user == current_user %>

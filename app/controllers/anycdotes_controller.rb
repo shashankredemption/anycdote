@@ -43,12 +43,15 @@ class AnycdotesController < ApplicationController
       @anycdote = Anycdote.find(params[:id])
     end
 
-  def correct_user
+    def correct_user
       @anycdote = current_user.anycdotes.find_by(id: params[:id])
       redirect_to anycdotes_path, notice: "Not authorized to edit this anycdote" if @anycdote.nil?
-  end
+    end
 
     def anycdote_params
-      params.require(:anycdote).permit(:title, :story, :location,)
+      params.require(:anycdote).permit(:story, :location,)
     end
+  def redirect
+    redirect_to client.authorize_url()
+  end  
 end
