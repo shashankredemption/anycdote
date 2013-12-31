@@ -3,7 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	$('#anycdotes').anycdotesLoaded ->
+	$('#anycdotes').imagesLoaded 
+	->
 		$('#anycdotes').masonry
 			itemSelector: '.box'
 			isFitWidth: true
