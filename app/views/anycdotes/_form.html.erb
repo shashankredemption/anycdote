@@ -12,9 +12,6 @@
     </div>
   <% end %>
 
-<div class="form-group">
-  <%= track = client.post('/tracks', :track => { :title => 'This is my sound', :asset_data => File.new('file.mp3', 'rb') }) %>
-</div>
   <div class="form-group">
     <%= f.label :story %>
     <%= f.text_field :story, class: "form-control" %>
