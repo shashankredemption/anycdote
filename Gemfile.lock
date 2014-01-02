@@ -149,7 +149,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
-  masonry-rails (~> 0.2.0)
+  masonry-rails
   pg
   rails (= 4.0.2)
   rails_12factor
