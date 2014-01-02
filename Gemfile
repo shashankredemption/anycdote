@@ -11,7 +11,7 @@ gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'devise', '~> 3.2.2'
-gem 'masonry-rails', '~> 0.2.0'
+gem 'masonry-rails'
 gem "soundcloud", "~> 0.3.2"
 
 group :development, :test do
