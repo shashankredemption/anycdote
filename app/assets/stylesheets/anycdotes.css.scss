@@ -4,6 +4,10 @@
 
 #anycdotes {
 	margin: 0 auto;
+	border: 1px solid black;
+  height: 15px;
+  padding: 12px;
+  overflow: hidden;
 }
 
 .box {
@@ -12,3 +16,6 @@
 	height: 500px;
 }
 
+#boxselected {
+	background: red;
+}
