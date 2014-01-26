@@ -14,14 +14,11 @@
 ActiveRecord::Schema.define(version: 20140126151553) do
 
   create_table "anycdotes", force: true do |t|
-    t.string   "title"
-    t.string   "string"
     t.string   "story"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_id"
-    t.string   "integer"
+    t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -32,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140126151553) do
     t.datetime "audio_updated_at"
   end
 
-  add_index "anycdotes", ["integer"], name: "index_anycdotes_on_integer"
+  add_index "anycdotes", ["user_id"], name: "index_anycdotes_on_user_id"
 
   create_table "locations", force: true do |t|
     t.string   "location"
