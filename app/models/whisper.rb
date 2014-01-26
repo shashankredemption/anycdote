@@ -2,6 +2,18 @@ require 'rubygems'
 require 'net/http'
 require 'JSON'
 
+class Hash
+  def except(*keys)
+    dup.except!(*keys)
+  end
+
+  # Replaces the hash without the given keys.
+  def except!(*keys)
+    keys.each { |key| delete(key) }
+    self
+  end
+end
+
 class Whisper
   
   def nearby(params)
@@ -12,7 +24,7 @@ class Whisper
     API.query(call, params)['nearby']
   end
   
-  def popular(params)
+  def popular(params = {})
     call = '/whispers/popular/popular'
     
     params[:include_topics] = TRUE unless params.key?(:include_topics)
@@ -29,7 +41,8 @@ class Whisper
   end
   
   def suggest(params)
-    call = '/search/suggest/' + options[:text]
+    call = "/search/suggest/" + params[:text]
+    
     params.except!(:text)
     
     params[:type] = 'place' unless params.key?(:type)
@@ -45,28 +58,19 @@ class Whisper
   
   class API
     def self.query(call, params)
-      @api = 'https://hackproxy.whisper.sh'
-      uri = URI(@api + call)
-      uri.query = URI.encode_www_form(params)
+      @api = URI('https://hackproxy.whisper.sh' + call + '?' + URI.encode_www_form(params))
       
-      raw = Net::HTTP.get_response(uri)
+      request = Net::HTTP::Get.new(@api)
+      # request.body = JSON::generate(params)
+      #request['version'] = 'ios_3.0.0'
       
-      JSON.parse(raw.body) # return
+      response = Net::HTTP.start(@api.hostname, @api.port, :use_ssl => true) do |http|
+        http.request(request)
+      end
+      
+      # raw = Net::HTTP.get_response(uri)
+      
+      JSON.parse(response.body) # return
     end
   end
 end
-
-# TESTING
-
-# whis = Whisper.new
-# results = whis.nearby :lat => 34.0219, :lon => -118.4814
-# 
-# results.each do |whisper|
-#   puts "{"
-#   
-#   whisper.each do |key, value|
-#     puts "\t #{key} : #{value}"
-#   end
-#   
-#   puts "}"
-# end
