@@ -13,8 +13,6 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'devise', '~> 3.2.2'
 gem 'masonry-rails'
 gem 'paperclip', '~> 3.0'
-gem 'soundcloud', '~> 0.3.2'
-gem 'georuby'
 gem 'json'
 
 group :development, :test do
