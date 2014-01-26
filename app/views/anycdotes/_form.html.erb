@@ -18,6 +18,11 @@
   </div>
   
   <div class="form-group">
+    <%= f.label :audio %>
+    <%= f.file_field :audio, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :story %>
     <%= f.text_field :story, class: "form-control" %>
   </div>

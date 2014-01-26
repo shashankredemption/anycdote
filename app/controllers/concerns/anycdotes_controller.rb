@@ -49,7 +49,7 @@ class AnycdotesController < ApplicationController
     end
 
     def anycdote_params
-      params.require(:anycdote).permit(:image, :story, :location)
+      params.require(:anycdote).permit(:audio, :image, :story, :location)      
     end
   def redirect
     redirect_to client.authorize_url()

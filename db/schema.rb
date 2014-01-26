@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126111408) do
+ActiveRecord::Schema.define(version: 20140126151553) do
 
   create_table "anycdotes", force: true do |t|
     t.string   "title"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20140126111408) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   add_index "anycdotes", ["integer"], name: "index_anycdotes_on_integer"
