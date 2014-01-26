@@ -1,5 +1,5 @@
-<div class="container" style="height:80%">
-	<div id="map-canvas" style="height:80%"></div>
+<div class="container" style="positioning:relative;width:800px;height:600px;top:100px;margin-top:100px;">
+	<div id="map-canvas" style="positioning:relative;width:800px;height:600px"></div>
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true">
@@ -7,24 +7,30 @@
 
 <script>
 function initialize() {
+  var center = new google.maps.LatLng(40, -100);
+	
 	var mapOptions = {
     zoom: 4,
-    center: scotland
+    center: center
   };
 	var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	
-  var coor1 = new google.maps.LatLng(57, 2);
-  var marker1 = new google.maps.Marker({
-      position: Scotland,
-      map: map,
-      title: 'Scotland'
-  });
-	var infowindow1 = new google.maps.InfoWindow({
-      content: '<a href="#"> this is a link </a>'
-  });
-	google.maps.event.addListener(marker1, 'click', function() {
-    infowindow1.open(map,marker1);
-  });
+	<% count = 1 %>
+	<% @locations.each do |location| %>
+		var coor<%=count%> = new google.maps.LatLng(<%=location.lat%>, <%=location.lon%>);
+	  var marker<%=count%> = new google.maps.Marker({
+	      position: coor<%=count%>,
+	      map: map,
+	      title: '<%=location.location%>'
+	  });
+		var infowindow<%=count%> = new google.maps.InfoWindow({
+	      content: '<a href="/locations/<%=location.id%>"> Go To <%=location.location%> </a>'
+	  });
+		google.maps.event.addListener(marker<%=count%>, 'click', function() {
+	    infowindow<%=count%>.open(map,marker<%=count%>);
+	  });
+		<% count = count + 1 %>
+	<% end %>
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
