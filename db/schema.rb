@@ -14,18 +14,21 @@
 ActiveRecord::Schema.define(version: 20140126111408) do
 
   create_table "anycdotes", force: true do |t|
+    t.string   "title"
+    t.string   "string"
     t.string   "story"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.string   "user_id"
+    t.string   "integer"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
 
-  add_index "anycdotes", ["user_id"], name: "index_anycdotes_on_user_id"
+  add_index "anycdotes", ["integer"], name: "index_anycdotes_on_integer"
 
   create_table "locations", force: true do |t|
     t.string   "location"
