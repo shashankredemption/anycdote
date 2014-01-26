@@ -4,6 +4,22 @@
     <div class="box panel panel-default">
       <div class = "panel-body">
         <%= anycdote.story %>
+        <script type="text/javascript">
+
+        anycdotes = document.getElementById("anycdotes")
+
+        anycdotes.getElementsByTagName("div").forEach(function(anycdote) {
+          anycdote.onClick = function() {
+            if (anycdote.getAttribute("id") == "boxselected") {
+              anycdote.setAttribute("id", "");
+            } else {
+              anycdote.setAttribute("id","boxselected");
+            }
+          };
+        });
+
+
+        </script>
       </div>
       <!-- <div class="panel-body">
       <%= anycdote.location %>  
@@ -13,8 +29,9 @@
         <% if anycdote.user == current_user %>
           <%= link_to 'Edit', edit_anycdote_path(anycdote) %> 
           <%= link_to 'Destroy', anycdote, method: :delete, data: { confirm: 'Are you sure?' } %> 
-        <%end %> 
+        <%end %>         
       </div> -->
+      
     </div>
   <% end %>
   </div>
