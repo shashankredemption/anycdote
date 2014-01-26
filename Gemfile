@@ -15,6 +15,7 @@ gem 'masonry-rails'
 gem 'paperclip', '~> 3.0'
 gem 'soundcloud', '~> 0.3.2'
 gem 'georuby'
+gem 'json'
 
 group :development, :test do
 	gem 'sqlite3'
