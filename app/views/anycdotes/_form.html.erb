@@ -1,5 +1,5 @@
 
-<%= form_for(@anycdote) do |f| %>
+<%= form_for @anycdote, html: { multipart: true } do |f| %>
   <% if @anycdote.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@anycdote.errors.count, "error") %> prohibited this anycdote from being saved:</h2>
@@ -12,6 +12,11 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  
   <div class="form-group">
     <%= f.label :story %>
     <%= f.text_field :story, class: "form-control" %>
